@@ -1,6 +1,45 @@
-<% @items.each do |item| %>
-  <div class = "item">
-    <h3> <%= item.title %> </h3>
-    <p><%= item.purchased %></p>
+<div id="main">
+  <div class="purchased list">
+    Stuff we've got:
+    <% @items.each do |item| %>
+        <% if item.purchased == true %>
+        <p>
+        <input type="checkbox" name="purchased" id="<%=item.id%>" checked="true">
+         <%= item.title %> <% if item.comments %><small>(<%= item.comments %>)</small> <%end%>
+         </p>
+        <%end%>
+    <%end%>
+
+    <form>
+      Is your gift not on either list?
+      <br/>Add it here:<br>
+      <input type="text" name="title">
+      <br>
+      Any comments?<br>
+      <input type="text" name="comments">
+    </form>
+
   </div>
-<%end%>
+
+  <div class= "needed list">
+    Stuff we need:
+    <% @items.each do |item| %>
+      <% if item.purchased != true %>
+        <p>
+        <input type="checkbox" name="purchased" id="<%=item.id%>">
+        <%= item.title %> <% if item.comments %><small>(<%= item.comments %>)</small> <%end%>
+        </p>
+        <%end%>
+    <%end%>
+
+    <form>
+      Is there something else we need?
+      <br />Add it here:<br>
+      <input type="text" name="title">
+      <br>
+      Any comments?<br>
+      <input type="text" name="comments" placeholder="">
+    </form>
+
+  </div>
+</div>

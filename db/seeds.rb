@@ -5,48 +5,40 @@ Item.create!(
 
 Item.create!(
  title: "baby bottles", 
- purchased: false,
- comments: ""
+ purchased: false
 )
 
 Item.create!(
  title: "teeny bathtub", 
- purchased: true,
- comments: ""
+ purchased: true
 )
 
 Item.create!(
  title: "nursing pillow", 
- purchased: true,
- comments: ""
+ purchased: true
 )
 
 Item.create!(
  title: "teething toys", 
- purchased: false,
- comments: ""
+ purchased: false
 )
 
 Item.create!(
  title: "carseat", 
- purchased: false,
- comments: ""
+ purchased: false
 )
 
 Item.create!(
  title: "stroller", 
- purchased: false,
- comments: ""
+ purchased: false
 )
 
 Item.create!(
  title: "newborn-sized clothing", 
- purchased: true,
- comments: ""
+ purchased: true
 )
 
 Item.create!(
  title: "breast pump", 
- purchased: true,
- comments: ""
+ purchased: true
 )
