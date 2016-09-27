@@ -1,17 +1,31 @@
 form {
-  border: 2px solid black;
-  /*display: inline-block;*/
+  /*border: 2px solid black;*/
+  background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+  padding: 2%;
 }
 
-.list {
-  border: 2px solid black;
+.registry {
+  clear: both;
+}
+
+.list, .intro {
+  /*border: 2px solid black;*/
   display: inline-block;
-  width: 38%;
+  width: 39%;
   padding: 2%;
   margin: 3%;
+  vertical-align: top;
 }
 
 #main {
   width: 90%;
-  margin: auto
+  margin: auto;
+  box-shadow: 0px 0px 15px 0px;
+}
+
+img {
+  width: 41%;
+  margin: 3%;
+  margin-left: 5%;
+  float: left;
 }
