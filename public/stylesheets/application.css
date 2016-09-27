@@ -2,6 +2,7 @@ form {
   /*border: 2px solid black;*/
   background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
   padding: 2%;
+  border-radius: 1%;
 }
 
 .registry {
@@ -28,4 +29,5 @@ img {
   margin: 3%;
   margin-left: 5%;
   float: left;
+  border-radius: 3px;
 }
