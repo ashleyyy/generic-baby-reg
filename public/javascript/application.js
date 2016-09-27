@@ -11,12 +11,24 @@ $(document).ready(function() {
     success: function(response) {
       response.forEach(function(item) {
         if (item.purchased == true) {
-          var entry = "<p> <input type='checkbox' name='purchased' id="+item.id+" checked='true'> "+item.title+"</p>"
+          var entry = $("<p>");
+          entry.html("<input type='checkbox' name='purchased' id="+item.id+" checked='true'> "+item.title);
           $('#purchased').append(entry);
+          if (item.comments) {
+            var comments = $("<small>");
+            comments.text(" ("+item.comments+")");
+            entry.append(comments);
+          }
         } 
         else if (item.purchased != true) {
-          var entry = "<p> <input type='checkbox' name='purchased' id="+item.id+"> "+item.title+"</p>"
+          var entry = $("<p>");
+          entry.html("<input type='checkbox' name='purchased' id="+item.id+"> "+item.title);
           $('#needed').append(entry);
+          if (item.comments) {
+            var comments = $("<small>");
+            comments.text(" ("+item.comments+")");
+            entry.append(comments);
+          }
         }
         })
       }

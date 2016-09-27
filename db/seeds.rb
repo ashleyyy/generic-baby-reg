@@ -10,7 +10,8 @@ Item.create!(
 
 Item.create!(
  title: "teeny bathtub", 
- purchased: true
+ purchased: true,
+ comments: "we actually have two, I think"
 )
 
 Item.create!(
@@ -25,7 +26,8 @@ Item.create!(
 
 Item.create!(
  title: "carseat", 
- purchased: false
+ purchased: false,
+ comments: "my dad will get this for us?"
 )
 
 Item.create!(
