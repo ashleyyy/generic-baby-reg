@@ -56,4 +56,25 @@ $(document).ready(function() {
     });
   });
 
+  $(".list").on('click', 'button', function(e) {
+    e.preventDefault();
+
+    var purchased = $(this).data('purchased');
+    var title = $(this).closest("div").find("input[name='title']").val();
+    var comments = $(this).closest("div").find("input[name='comments']").val();
+
+    if (title != "") {
+      $.ajax({
+        url: '/items',
+        method: "POST",
+        dataType: "json",
+        data: {title: title, purchased: purchased, comments: comments},
+        success: function(response){
+          $("form")[0].reset();
+          populateLists();
+        }
+      });
+    }
+  });
+
 });

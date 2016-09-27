@@ -15,14 +15,8 @@ post '/items' do
     purchased: params[:purchased],
     comments: params[:comments]
   )
-  respond_to do |format|
-    if @item.save
-      format.html{render @item}
-      format.json{render json: @item}
-    else 
-      format.html { render action: "new" }
-      format.json { render json: @item.errors.full_messages}
-    end
+  if @item.save
+    @item.to_json
   end
 end
 

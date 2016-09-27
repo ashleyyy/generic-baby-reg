@@ -4,12 +4,14 @@
     <div id="purchased"></div>
 
     <form>
+      <p>
       Is your gift not on either list?
-      <br/>Add it here:<br>
+      </p>Add it here:
       <input type="text" name="title">
-      <br>
-      Any comments?<br>
-      <input type="text" name="comments">
+      <p>
+      Any comments?
+      <input type="text" name="comments" placeholder="" id="purchased-comments">
+      <button data-purchased="true">Add</button></p>
     </form>
 
   </div>
@@ -19,12 +21,14 @@
     <div id="needed"></div>
 
     <form>
+      <p>
       Is there something else we need?
-      <br />Add it here:<br>
-      <input type="text" name="title">
-      <br>
-      Any comments?<br>
-      <input type="text" name="comments" placeholder="">
+      </p>Add it here:
+      <input type="text" name="title" data-purchased="false">
+      <p>
+      Any comments?
+      <input type="text" name="comments" placeholder="" data-purchased="false">
+      <button data-purchased="false">Add</button></p>
     </form>
 
   </div>
