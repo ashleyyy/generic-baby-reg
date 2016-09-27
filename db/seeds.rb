@@ -161,11 +161,6 @@ Item.create!(
 )
 
 Item.create!(
- title: "breast milk storage containers?", 
- purchased: false,
-)
-
-Item.create!(
  title: "super comfy chair", 
  purchased: false,
  comments: "like an armchair or a 'glider and ottoman'"

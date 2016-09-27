@@ -21,7 +21,7 @@ $(document).ready(function() {
           $('#needed').append(entry);
         }
         if (item.url) {
-          entry.html.wrap( "<a href='"+item.url+"' target='_blank'></a>" );
+          entry.wrap( "<a href='"+item.url+"' target='_blank'></a>" );
         }
         if (item.comments) {
           var comments = $("<small>");
