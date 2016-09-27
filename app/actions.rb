@@ -4,6 +4,11 @@ get '/' do
   erb :index
 end
 
+get '/items' do
+  @items = Item.all
+  @items.to_json
+end
+
 post '/items' do
   @item = Item.new(
     title: params[:title],

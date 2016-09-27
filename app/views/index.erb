@@ -1,14 +1,7 @@
 <div id="main">
-  <div class="purchased list">
-    Stuff we've got:
-    <% @items.each do |item| %>
-        <% if item.purchased == true %>
-        <p>
-        <input type="checkbox" name="purchased" id="<%=item.id%>" checked="true">
-         <%= item.title %> <% if item.comments %><small>(<%= item.comments %>)</small> <%end%>
-         </p>
-        <%end%>
-    <%end%>
+  <div class="list">
+  Stuff we've got:
+    <div id="purchased"></div>
 
     <form>
       Is your gift not on either list?
@@ -21,16 +14,9 @@
 
   </div>
 
-  <div class= "needed list">
-    Stuff we need:
-    <% @items.each do |item| %>
-      <% if item.purchased != true %>
-        <p>
-        <input type="checkbox" name="purchased" id="<%=item.id%>">
-        <%= item.title %> <% if item.comments %><small>(<%= item.comments %>)</small> <%end%>
-        </p>
-        <%end%>
-    <%end%>
+  <div class= "list">
+  Stuff we need:
+    <div id="needed"></div>
 
     <form>
       Is there something else we need?
