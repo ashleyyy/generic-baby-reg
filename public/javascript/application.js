@@ -12,23 +12,21 @@ $(document).ready(function() {
       response.forEach(function(item) {
         if (item.purchased == true) {
           var entry = $("<p>");
-          entry.html("<input type='checkbox' name='purchased' id="+item.id+" checked='true'> "+item.title);
+          entry.html("<input type='checkbox' name='purchased' id="+item.id+" checked='true'>"+item.title);
           $('#purchased').append(entry);
-          if (item.comments) {
-            var comments = $("<small>");
-            comments.text(" ("+item.comments+")");
-            entry.append(comments);
-          }
         } 
         else if (item.purchased != true) {
           var entry = $("<p>");
-          entry.html("<input type='checkbox' name='purchased' id="+item.id+"> "+item.title);
+          entry.html("<input type='checkbox' name='purchased' id="+item.id+">"+item.title);
           $('#needed').append(entry);
-          if (item.comments) {
-            var comments = $("<small>");
-            comments.text(" ("+item.comments+")");
-            entry.append(comments);
-          }
+        }
+        if (item.url) {
+          entry.html.wrap( "<a href='"+item.url+"' target='_blank'></a>" );
+        }
+        if (item.comments) {
+          var comments = $("<small>");
+          comments.text(" ("+item.comments+")");
+          entry.append(comments);
         }
         })
       }

@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20160926210641) do
     t.string   "title"
     t.boolean  "purchased"
     t.string   "comments"
+    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

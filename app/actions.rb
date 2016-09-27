@@ -5,7 +5,7 @@ get '/' do
 end
 
 get '/items' do
-  @items = Item.all
+  @items = Item.all.order(:title)
   @items.to_json
 end
 

@@ -4,6 +4,7 @@ class AddItems < ActiveRecord::Migration
       t.string :title
       t.boolean :purchased
       t.string :comments
+      t.string :url
       t.timestamps
     end
   end
