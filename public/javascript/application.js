@@ -68,7 +68,8 @@ $(document).ready(function() {
         dataType: "json",
         data: {title: title, purchased: purchased, comments: comments},
         success: function(response){
-          $("form")[0].reset();
+          $("form")[0].reset();          
+          $("form")[1].reset();
           populateLists();
         }
       });
