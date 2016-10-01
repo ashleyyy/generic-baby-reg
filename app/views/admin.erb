@@ -3,7 +3,7 @@
 <div class="list">
 <ul>
   <% @items.each do |item| %>
-    <li data-id="<%=item.id%>"><%=item.title%></li>
+    <li data-id="<%=item.id%>"><%=item.title%> <small><button class="admin-delete">Delete</button></small></li> 
   <%end%>
 </ul>
 </div>
@@ -23,7 +23,7 @@
   <label for="purchased">Purchased?</label>
   <input type="checkbox" name="purchased">
   </p><p>
-  <button id="admin-clear">Clear Form</button> <button id="admin-delete">Delete Item</button> <button id="admin-save">Save Item</button> 
+  <button id="admin-clear">Clear Form</button> <button id="admin-save">Save Item</button> 
   </p>
 
 </form>

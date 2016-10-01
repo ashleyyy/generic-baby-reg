@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-
   // fill form on clicking list item
   $('li').on('click', function () {
     $("form")[0].reset();   
@@ -68,29 +67,28 @@ $(document).ready(function() {
     }
   });
 
-
-  $(".admin").on('click', '#admin-delete', function(e) {
+  //deletes item
+  $("ul").on('click', 'button', function(e) {
     e.preventDefault();
 
-    var id = $("form").data('id');
+    var id = $(this).closest("li").data('id');
 
-      $.ajax({
-        url: "/items/" + id + "/delete",
-        method: 'delete',
-        dataType: "json",
-        success: function(response){
-          $("form")[0].reset(); 
-          $("form").data('id', null)
-          console.log(response);
-        }
-      });
+    $.ajax({
+      url: "/items/" + id + "/delete",
+      method: 'delete',
+      dataType: "json",
+      success: function(response){
+        $("li[data-id="+id+"]").hide();
 
-
-
+        $("form")[0].reset(); 
+        $("form").data('id', null);
+        console.log(response.msg);
+      }
+    });
   });
 
 
-
+  // clears form
   $(".admin").on('click', '#admin-clear', function(e) {
     e.preventDefault();
 
