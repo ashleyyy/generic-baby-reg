@@ -1,9 +1,10 @@
 
 
 <div class="list">
+Click on the item to view details
 <ul>
   <% @items.each do |item| %>
-    <li data-id="<%=item.id%>"><%=item.title%> <small><button class="admin-delete">Delete</button></small></li> 
+    <li data-id="<%=item.id%>" style="cursor:default"><span class="item"><%=item.title%></span> <small><button class="admin-delete">Delete</button></small></li> 
   <%end%>
 </ul>
 </div>

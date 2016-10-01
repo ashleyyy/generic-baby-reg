@@ -1,10 +1,10 @@
 $(document).ready(function() {
 
-  // fill form on clicking list item
-  $('li').on('click', function () {
+  // fill form on clicking list item text
+  $('.item').on('click', function () {
     $("form")[0].reset();   
 
-    var id = $(this).data('id') 
+    var id = $(this).closest('li').data('id') 
 
     $.ajax({
       url: '/items/'+id,
@@ -60,8 +60,14 @@ $(document).ready(function() {
         data: {title: title, purchased: purchased, comments: comments, url: url},
         success: function(response){
           $("form")[0].reset(); 
-          $("form").data('id', null)
+          $("form").data('id', null);
+          $("li[data-id="+id+"]").hide();
           console.log(response);
+          var item = $("<li data-id='"+response.id+"' style='cursor:default'>");
+          item.data('id', response.id);
+          item.html("<span class='item'>"+response.title+"</span>"+
+                    " <small><button class='admin-delete'>Delete</button></small>");
+          item.appendTo($("ul"));
         }
       });
     }

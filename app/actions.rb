@@ -4,7 +4,7 @@ get '/' do
   erb :index
 end
 
-get '/admin' do
+get '/qousqous' do
   @items = Item.all
   erb :admin
 end
