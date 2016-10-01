@@ -18,7 +18,8 @@ post '/items' do
   @item = Item.new(
     title: params[:title],
     purchased: params[:purchased],
-    comments: params[:comments]
+    comments: params[:comments],
+    url: params[:url]
   )
   if @item.save
     @item.to_json
@@ -27,7 +28,12 @@ end
 
 put '/items/:id' do
   @item = Item.find_by(id: params[:id])
+  
+  @item.title = params[:title],
   @item.purchased = params[:purchased]
+  @item.comments params[:comments]
+  @item.url = params[:url]
+
     if @item.save
       @item.to_json
     end

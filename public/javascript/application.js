@@ -36,7 +36,7 @@ $(document).ready(function() {
   populateLists();
 
   //changes item from needed to purchased in database by checking checkbox
-  $(".list").on('change', ':checkbox', function () {
+  $(".registry > .list").on('change', ':checkbox', function () {
     if ($(this)[0].checked) {
       var purchased = true; 
     } else {
@@ -53,8 +53,9 @@ $(document).ready(function() {
       }
     });
   });
-
-  $(".list").on('click', 'button', function(e) {
+  
+  // saves new item
+  $(".registry > .list").on('click', 'button', function(e) {
     e.preventDefault();
 
     var purchased = $(this).data('purchased');
