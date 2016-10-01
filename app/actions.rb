@@ -44,3 +44,12 @@ get '/items/:id' do
   @item = Item.find_by(id: params[:id])
   @item.to_json
 end
+
+delete '/items/:id/delete' do
+  @item = Item.find_by(id: params[:id])
+  response = {}
+  if @item.delete
+    response[:msg] = "success"
+    response.to_json
+  end
+end

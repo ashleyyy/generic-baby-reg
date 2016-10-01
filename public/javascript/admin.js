@@ -24,8 +24,8 @@ $(document).ready(function() {
   });
 
 
-    // saves new item
-  $(".admin").on('click', 'button', function(e) {
+  // saves new item
+  $(".admin").on('click', '#admin-save', function(e) {
     e.preventDefault();
 
     if ($("input[name='purchased']")[0].checked) {
@@ -51,12 +51,7 @@ $(document).ready(function() {
     
     if ($(this).closest("div").find("input[name='url']").val() != "") {
       var url = $(this).closest("div").find("input[name='url']").val();
-    }
-
-          console.log("title "+title);
-          console.log("url "+url);
-          console.log("comments "+comments);   
-          console.log("purchased "+purchased);  
+    } 
 
     if (title != "") {
       $.ajax({
@@ -66,10 +61,7 @@ $(document).ready(function() {
         data: {title: title, purchased: purchased, comments: comments, url: url},
         success: function(response){
           $("form")[0].reset(); 
-          console.log("title "+title);
-          console.log("url "+url);
-          console.log("comments "+comments);   
-          console.log("purchased "+purchased);     
+          $("form").data('id', null)
           console.log(response);
         }
       });
@@ -77,4 +69,33 @@ $(document).ready(function() {
   });
 
 
+  $(".admin").on('click', '#admin-delete', function(e) {
+    e.preventDefault();
+
+    var id = $("form").data('id');
+
+      $.ajax({
+        url: "/items/" + id + "/delete",
+        method: 'delete',
+        dataType: "json",
+        success: function(response){
+          $("form")[0].reset(); 
+          $("form").data('id', null)
+          console.log(response);
+        }
+      });
+
+
+
+  });
+
+
+
+  $(".admin").on('click', '#admin-clear', function(e) {
+    e.preventDefault();
+
+    $("form")[0].reset(); 
+    $("form").data('id', null)
+
+  });
 });
