@@ -39,3 +39,33 @@ input[type='checkbox'] {
 .admin input[type='text'] {
   width: 100%;
 }
+
+.item {
+
+  box-shadow:inset 0px 1px 0px 0px #ffffff;
+  background:linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#bab1ba',GradientType=0);
+  background-color:#ededed;
+  border-radius:6px;
+  border:1px solid #dcdcdc;
+  display:inline-block;
+  cursor:pointer;
+  color:#3a8a9e;
+  /*font-family:Arial;*/
+  /*font-size:15px;*/
+  /*font-weight:bold;*/
+  padding:3px 6px;
+  margin-top: 3px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #ffffff;
+}
+
+.item:hover {
+  background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#ffffff',GradientType=0);
+  background-color:#f6f6f6;
+}
+.item:active {
+  position:relative;
+  top:1px;
+}

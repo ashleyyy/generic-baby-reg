@@ -11,6 +11,7 @@ $(document).ready(function() {
       method: "GET",
       dataType: "json",
       success: function(response){
+        $("form").show();
         $("input[name='title']").val(response.title);
         $("input[name='comments']").val(response.comments);
         $("input[name='url']").val(response.url);
@@ -61,9 +62,10 @@ $(document).ready(function() {
         success: function(response){
           $("form")[0].reset(); 
           $("form").data('id', null);
+          $("form").hide();
           $("li[data-id="+id+"]").hide();
           console.log(response);
-          var item = $("<li data-id='"+response.id+"' style='cursor:default'>");
+          var item = $("<li data-id='"+response.id+"' style='cursor:pointer'>");
           item.data('id', response.id);
           item.html("<span class='item'>"+response.title+"</span>"+
                     " <small><button class='admin-delete'>Delete</button></small>");
@@ -87,6 +89,7 @@ $(document).ready(function() {
         $("li[data-id="+id+"]").hide();
 
         $("form")[0].reset(); 
+        $("form").hide();
         $("form").data('id', null);
         console.log(response.msg);
       }
@@ -99,7 +102,18 @@ $(document).ready(function() {
     e.preventDefault();
 
     $("form")[0].reset(); 
-    $("form").data('id', null)
+    $("form").data('id', null);
+    $("form").hide();
+
+  });
+
+    // shows form
+  $("#admin-new").on('click', function(e) {
+    e.preventDefault();
+
+    $("form")[0].reset(); 
+    $("form").data('id', null);
+    $("form").show();
 
   });
 });

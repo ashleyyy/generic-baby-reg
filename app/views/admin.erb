@@ -1,16 +1,17 @@
 
 
 <div class="list">
-Click on the item to view details
+Click on the item to view details<p>
+<span class="item" id="admin-new">Add new item</span></p>
 <ul>
   <% @items.each do |item| %>
-    <li data-id="<%=item.id%>" style="cursor:default"><span class="item"><%=item.title%></span> <small><button class="admin-delete">Delete</button></small></li> 
+    <li data-id="<%=item.id%>"><span class="item"><%=item.title%></span> <small><button class="admin-delete">Delete</button></small></li> 
   <%end%>
 </ul>
 </div>
 <div class="list">
 
-<form class="admin">
+<form class="admin" hidden="true">
   <p>
   <label for="title">Title</label>
   <input type="text" name="title">
@@ -24,7 +25,7 @@ Click on the item to view details
   <label for="purchased">Purchased?</label>
   <input type="checkbox" name="purchased">
   </p><p>
-  <button id="admin-clear">Clear Form</button> <button id="admin-save">Save Item</button> 
+  <button id="admin-clear">Cancel</button> <button id="admin-save">Save Item</button> 
   </p>
 
 </form>
