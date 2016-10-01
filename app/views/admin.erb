@@ -1,0 +1,34 @@
+
+
+<div class="list">
+<ul>
+  <% @items.each do |item| %>
+    <li data-id="<%=item.id%>"><%=item.title%></li>
+  <%end%>
+</ul>
+</div>
+<div class="list">
+
+<form class="admin">
+  <p>
+  <label for="title">Title</label>
+  <input type="text" name="title">
+  </p><p>
+  <label for="comments">Comments</label>
+  <input type="text" name="comments">
+  </p><p>
+  <label for="url">URL</label>
+  <input type="text" name="url">
+  </p><p>
+  <label for="purchased">Purchased?</label>
+  <input type="checkbox" name="purchased">
+  </p><p>
+  <button>Save</button> <button>Delete</button>
+  </p>
+
+</form>
+
+
+
+
+</div>

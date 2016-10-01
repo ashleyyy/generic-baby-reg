@@ -4,6 +4,11 @@ get '/' do
   erb :index
 end
 
+get '/admin' do
+  @items = Item.all
+  erb :admin
+end
+
 get '/items' do
   @items = Item.all.order(:title)
   @items.to_json
@@ -26,4 +31,9 @@ put '/items/:id' do
     if @item.save
       @item.to_json
     end
+end
+
+get '/items/:id' do
+  @item = Item.find_by(id: params[:id])
+  @item.to_json
 end
