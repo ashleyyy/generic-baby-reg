@@ -28,9 +28,6 @@ $(document).ready(function() {
   $(".admin").on('click', 'button', function(e) {
     e.preventDefault();
 
-    // console.log($("input[type='checkbox']"));
-    // console.log($("input[name='purchased']"));
-
     if ($("input[name='purchased']")[0].checked) {
       var purchased = true;
     } else {
@@ -38,20 +35,32 @@ $(document).ready(function() {
     }
 
     if ($("form").data('id')) {
-      var id = "/" + $("form").data('id');
+      var id = $("form").data('id');
       var method = "put";
+      var putUrl = "/items/" + id
     } else {
       var method = "post";
-      var id = "";
+      var putUrl = "/items"
     }
 
     var title = $(this).closest("div").find("input[name='title']").val();
-    var comments = $(this).closest("div").find("input[name='comments']").val();
-    var url = $(this).closest("div").find("input[name='url']").val();
+    
+    if ($(this).closest("div").find("input[name='comments']").val()) {
+      var comments = $(this).closest("div").find("input[name='comments']").val();
+    }
+    
+    if ($(this).closest("div").find("input[name='url']").val() != "") {
+      var url = $(this).closest("div").find("input[name='url']").val();
+    }
+
+          console.log("title "+title);
+          console.log("url "+url);
+          console.log("comments "+comments);   
+          console.log("purchased "+purchased);  
 
     if (title != "") {
       $.ajax({
-        url: '/items' +id,
+        url: putUrl,
         method: method,
         dataType: "json",
         data: {title: title, purchased: purchased, comments: comments, url: url},

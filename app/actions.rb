@@ -27,12 +27,13 @@ post '/items' do
 end
 
 put '/items/:id' do
+  puts params
   @item = Item.find_by(id: params[:id])
-  
-  @item.title = params[:title],
-  @item.purchased = params[:purchased]
-  @item.comments params[:comments]
-  @item.url = params[:url]
+
+  @item.title = params[:title]
+  @item.purchased = params[:purchased] 
+  @item.comments = params[:comments] if params[:comments]
+  @item.url = params[:url] if params[:url]
 
     if @item.save
       @item.to_json
